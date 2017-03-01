@@ -294,10 +294,9 @@ class Label(models.Model):
     author_uri  = models.CharField(u'main URI',blank=True,max_length=250,editable=True)    
     created     = exfields.CreationDateTimeField(_(u'created'))
     modified    = exfields.ModificationDateTimeField(_(u'modified'))
-    
-    
+                                                
     def get_absolute_url(self):
-        return reverse('tag_detail', args=[self.slug])
+        return reverse('tag_detail', args=[self.uri])
     def __unicode__(self):
          return unicode(self.label_text)
     def create_concept_from_label(self):
