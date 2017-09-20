@@ -54,8 +54,8 @@ class ConceptAdmin(FkAutocompleteAdmin):
     list_display = ('term','pref_label','uri','scheme','top_concept')
     #list_editable = ('status','term','scheme','top_concept')
     list_filter = ('scheme','status')
-    change_form_template = 'admin_concept_change.html'
-    change_list_template = 'admin_concept_list.html'
+    change_form_template = 'skosxl/admin_concept_change.html'
+    change_list_template = 'skosxl/admin_concept_list.html'
     # def change_view(self, request, object_id, extra_context=None):
     #     from SPARQLWrapper import SPARQLWrapper,JSON, XML
     #     #import pdb; pdb.set_trace()
@@ -95,7 +95,7 @@ class ConceptAdmin(FkAutocompleteAdmin):
         try :
             scheme_id = int(request.GET['scheme__id__exact'])
         except KeyError :
-            scheme_id = 1 # FIXME: if no scheme filter is called, get the first (or "General") : a fixture to create one ?
+            scheme_id = 3 # FIXME: if no scheme filter is called, get the first (or "General") : a fixture to create one ?
         return super(ConceptAdmin, self).changelist_view(request, 
                                         extra_context={'scheme_id':scheme_id})
             
