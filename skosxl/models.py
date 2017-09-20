@@ -195,7 +195,7 @@ class Concept(models.Model):
                                             # help_text=_(u'These properties are used to state mapping (alignment) links between SKOS concepts in different concept schemes'))
                                             
     def __unicode__(self):
-        return "".join((self.term, "(", self.uri , ")" ))
+        return "".join((self.pref_label, " (", self.uri , ")" ))
     
     def natural_key(self):
         return ( self.uri )
